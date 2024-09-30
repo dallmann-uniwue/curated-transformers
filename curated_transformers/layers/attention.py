@@ -708,7 +708,7 @@ class ScaledDotProductAttention(AttentionScorer):
                 key=key,
                 value=value,
                 attn_mask=logit_mask,
-                dropout_p=self.dropout_prob if self.training else 0.0,
+                dropout_p=self.dropout.p if self.training else 0.0,
             )
 
             # Torch SDP returns NaNs for pieces where every is piece masked out.
